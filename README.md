@@ -40,3 +40,15 @@ void loop() {
   LoggerHandleClient();
   Loggerf("uptime=%lu", (unsigned long)millis());
 }
+
+```
+
+## Listening
+
+When the code is running on the ESP32, it is going to send out logs over TCP. To listen/watch...
+
+```sh
+# You will need the local IP address of the device, 
+$ nc 10.30.70.162 23
+```
+
