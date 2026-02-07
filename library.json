@@ -1,0 +1,8 @@
+{
+  "name": "TcpLogger",
+  "version": "1.0.0",
+  "description": "Lightweight TCP logger for ESP32 (no heap, printf-style)",
+  "keywords": ["logging", "tcp", "esp32", "wifi"],
+  "frameworks": ["arduino"],
+  "platforms": ["espressif32"]
+}
