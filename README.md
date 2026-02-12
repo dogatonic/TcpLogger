@@ -10,6 +10,9 @@ I am switching my Arduino projects over to EP32 and also to OTA updating. So I w
 
 With GPT's help, I have used code that avoids some pitfalls of earlier attempts at TCP logging. 
 
+Keep in mind! I still do use the ESP8266, so I have to make sure all my modules are doing their best
+to stay in line with both chips.
+
 ### Why this logger is better
 
 - **No heap churn**
@@ -49,6 +52,6 @@ When the code is running on the ESP32, it is going to send out logs over TCP. To
 
 ```sh
 # You will need the local IP address of the device, 
-$ nc 10.30.70.162 23
+$ nc 10.30.70.XXX 23
 ```
 

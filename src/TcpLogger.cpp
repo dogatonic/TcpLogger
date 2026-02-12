@@ -19,6 +19,11 @@ static WiFiServer logServer(23);
 static WiFiClient logClient;
 
 void LoggerBegin(uint16_t port){
+	static bool started = false;
+	if (started) return;
+	started = true;
+
+	// "first call wins" — config port once
 	logServer = WiFiServer(port);
 	logServer.begin();
 	logServer.setNoDelay(true);
@@ -29,14 +34,12 @@ bool LoggerEnabled(){
 }
 
 void LoggerHandleClient(){
-	if (!logClient || !logClient.connected())
-	{
+	if (!logClient || !logClient.connected()){
 		if (logClient)
 			logClient.stop();
 		logClient = logServer.available();
-		if (logClient)
-		{
-			logClient.println("Connected to ESP32 logger");
+		if (logClient){
+			logClient.println("Connected to TCP logger");
 			logClient.println(WiFi.localIP());
 		}
 	}
